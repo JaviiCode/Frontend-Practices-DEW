@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+
+  <body>
+    <script>
+      //Constantes del enunciado donde podemos encontrar el nombre del evento, su categoria, su localizacioon y el numero de asistentes de manera aleatoria entre 10 y 200.
+      const Name = ["Conferencia", "Seminario", "Reunión", "Webinar", "Taller"];
+      const Category = ["Negocios", "Tecnología", "Educación", "Entretenimiento"];
+      const Location1 = ["Madrid", "Barcelona", "Valencia", "Sevilla"];
+
+      //Constante donde guardo los eventos junto a un for donde voy a generar 5 eventos.
+      const Events = [];
+      for (var countFor = 0; countFor < 5; countFor++) {
+        //Se le pone (200-10+1) ya que tengo que ajustar el Math por su funcionamiento debido a que me los da en decimal, esto daria un total de 191 y seguido de ello le sumamos los 10 restantes dando un total de 201-1 (200).
+        const Assistans = Math.floor(Math.random() * (200 - 10 + 1)) + 10;
+        //Calcular una fecha aleatoria desde la fecha actual hasta 60 dias mas.
+        const InitialDate = new Date();
+        const plusDay = Math.floor(Math.random() * 60);
+        const CorrectDate = new Date(InitialDate);
+        CorrectDate.setDate(CorrectDate.getDate() + plusDay);
+
+        //Genero un numero aleatorio del 0 al 4,  y en base al numero que me da el random voy generando el json extrayendo del array la informacion.
+        const RandomNumber = Math.floor(Math.random() * 4);
+
+        let EventName = Name[RandomNumber];
+        const EventCategory = Category[RandomNumber];
+        const EventLocation = Location1[RandomNumber];
+        EventName = {
+          Nombre:  EventName,
+          Categoria: EventCategory,
+          Ubicacion: EventLocation,
+          Asistentes: Assistans,
+          Fecha: CorrectDate,
+        };
+        Events.push(EventName);
+      }
+      const jsonString = JSON.stringify(Events);
+      console.log(jsonString);
+    </script>
+  </body>
+</html>
