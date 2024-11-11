@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+
+  <body>
+    <script>
+            //Constantes del enunciado, ID unico entero, un array de nombre de poductos, su precio, se pondra aleatorio igual que su cantidad.
+            let idProduct;
+            const Name = ["Laptop", "Teléfono", "Tablet", "Monitor", "Auriculares"];
+            let Price;
+            let Quantity;
+
+            //Constante donde guardo los eventos junto a un for donde voy a generar 5 eventos.
+            const Products = [];
+            for (var countFor = 0; countFor < 5; countFor++) {
+              Price = Math.floor(Math.random() * (1000 - 10 + 1)) + 100;
+              Quantity =  Math.floor(Math.random() * (100 - 10 + 1)) + 1;
+
+
+             // Generar una fecha aleatoria dentro del último año
+            const randomDaysAgo = Math.floor(Math.random() * 365);
+            const Date1 = new Date();
+            Date1.setDate(Date1.getDate() - randomDaysAgo);
+
+              //Genero un numero aleatorio del 0 al 4,  y en base al numero que me da el random voy generando el json extrayendo del array la informacion.
+              const RandomNumber = Math.floor(Math.random() * 4);
+              Product = {
+                idProduct:  countFor,
+                Nombre: Name[RandomNumber],
+                Precio: Price,
+                Cantidad: Quantity,
+                Fecha: Date,
+              };
+              Products.push(Product);
+            }
+    </script>
+  </body>
+</html>
