@@ -1,14 +1,21 @@
 import {Modelo} from './Modelo.js';
 import {Marca} from './Marca.js';
 import {Vehiculos} from './Vehiculos.js';
+import {Conductor} from './Conductor.js';
 
-modeloBMW = new Modelo(1, "BMW a1");
-marcaBMW = new Marca(1, "BMW");
+//Parte de crear vehiculo con todos sus datos
+let vehiculosAsociados = [];
 
-this.Modelo.push(modeloBMW);
+let marcaBMW = new Marca(1, "BMW");
+let modeloBMW = new Modelo(1, "BMW a1");
 
-vehiculo1 = new Vehiculos(marcaBMW, Modelo[0], "25-1-2026");
+marcaBMW.Modelo.push(modeloBMW);
 
-this.vehiculosAsociados.push(vehiculo1);
+let vehiculo1 = new Vehiculos(marcaBMW, marcaBMW.Modelo[0], "25-1-2026");
 
-console.log(vehiculosAsociados[0]);
+vehiculosAsociados.push(vehiculo1);
+
+//Asocio un conductor con su vehiculo.
+let conductor1 = new Conductor(1, "Javi", "25-07-2024", vehiculosAsociados[0]);
+console.log(conductor1);
+
