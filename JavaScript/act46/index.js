@@ -23,10 +23,10 @@ let conductor1 = new Conductor(1, "Javi", "25-07-2024");
 conductor1.vehiculos.push(vehiculo1);
 
 
-let infraccion1 = new Infraccion(1, "Exceso de velocidad", 25);
-let infraccion2 = new Infraccion(2, "Salto de stop", 40);
-let infraccion3 = new Infraccion(3, "Exceso de alcohol", 120);
-let infraccion4 = new Infraccion(4, "Exceso de drogas", 200);
+let infraccion1 = new Infraccion(1, "Exceso de velocidad", 25, "Grave");
+let infraccion2 = new Infraccion(2, "Salto de stop", 40, "Leve");
+let infraccion3 = new Infraccion(3, "Exceso de alcohol", 120, "Grave");
+let infraccion4 = new Infraccion(4, "Exceso de drogas", 200, "Grave");
 
 conductor1.Infracciones.push(infraccion1, infraccion2, infraccion3);
 
@@ -35,8 +35,8 @@ conductor1.Infracciones.push(infraccion1, infraccion2, infraccion3);
         let sumaInfracciones = 0;
         for(let i = 0; i < conductor1.Infracciones.length; i++){
             sumaInfracciones += conductor1.Infracciones[i].Monto;
-
         }
+
         conductor1.Monto = sumaInfracciones;
         let montoFinal = sumaInfracciones - (sumaInfracciones * 20 / 100);
         conductor1.MontoConDescuento = montoFinal;
@@ -47,8 +47,8 @@ conductor1.Infracciones.push(infraccion1, infraccion2, infraccion3);
         let sumaInfracciones = 0;
         for(let i = 0; i < conductor1.Infracciones.length; i++){
             sumaInfracciones += conductor1.Infracciones[i].Monto;
-
         }
+
         conductor1.Monto = sumaInfracciones;
         let montoFinal = sumaInfracciones - (sumaInfracciones * 50 / 100);
         conductor1.MontoConDescuento = montoFinal;
@@ -57,6 +57,22 @@ conductor1.Infracciones.push(infraccion1, infraccion2, infraccion3);
     if(conductor1.Infracciones.length >3){
         console.log(`El conductor ${conductor1.Nombre} no tiene derecho a descuento`);
     }
+
+
+    //Restar puntos segun la gravedad de la infraccion.
+    for(let i = 0; i < conductor1.Infracciones.length; i++){
+        console.log("hola");
+        if(conductor1.Infracciones[i].gravedadInfraccion === "Grave"){
+            conductor1.Puntos -= 3;
+        }
+        if(conductor1.Infracciones[i].gravedadInfraccion === "Leve"){
+            conductor1.Puntos -= 1;
+        }
+    }
+    
+
+    
+
     console.log("Datos del conductor.");
     console.log(conductor1);
 
