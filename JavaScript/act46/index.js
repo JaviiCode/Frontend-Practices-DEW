@@ -58,7 +58,6 @@ conductor1.Infracciones.push(infraccion1, infraccion2, infraccion3);
         console.log(`El conductor ${conductor1.Nombre} no tiene derecho a descuento`);
     }
 
-
     //Restar puntos segun la gravedad de la infraccion.
     for(let i = 0; i < conductor1.Infracciones.length; i++){
         console.log("hola");
