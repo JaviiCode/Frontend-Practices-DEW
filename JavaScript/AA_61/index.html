@@ -1,34 +1,155 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script type="module" src="index.js"></script>
-    <title>Actividad 61 tema 6</title>
+    <title>Registro y Filtro</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+
+        h1, h2 {
+            color: #333;
+        }
+
+        #Formulario, #FiltroRegistro {
+            margin-bottom: 20px;
+        }
+
+        form {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        form p {
+            margin: 0;
+            font-weight: bold;
+        }
+
+        input, select, button {
+            padding: 5px;
+            font-size: 14px;
+        }
+
+        button {
+            background-color: #007bff;
+            color: white;
+            border: none;
+            border-radius: 3px;
+            padding: 8px 12px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #0056b3;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 10px;
+        }
+
+        table, th, td {
+            border: 1px solid #ddd;
+        }
+
+        th, td {
+            padding: 10px;
+            text-align: left;
+        }
+
+        th {
+            background-color: #f4f4f4;
+        }
+
+        .actions {
+            display: flex;
+            gap: 10px;
+        }
+
+        .actions button {
+            padding: 8px 12px;
+        }
+
+        .actions button#filtrar {
+            background-color: #007bff;
+        }
+
+        .actions button#restaurar {
+            background-color: #6c757d;
+        }
+
+        .actions button:hover {
+            opacity: 0.9;
+        }
+    </style>
 </head>
 <body>
     <h1>Añadir Nuevo Registro</h1>
-    <form>
-        <p>Fecha: </p>
-        <input type = "date">
+    <div id="Formulario">
+        <form>
+            <p>Fecha:</p>
+            <input id = "fecha" type="date">
 
-        <p>Concepto: </p>
-        <select id="concepto">
-            <option value="ingreso"> Ingreso </option>
-            <option value="gasto"> Gasto </option>
-        </select>
+            <p>Concepto:</p>
+            <select id="concepto">
+                <option value="ingreso">Ingreso</option>
+                <option value="gasto">Gasto</option>
+            </select>
 
-        <p>Cuantia: </p>
-        <input type="number" id="cantidad">
+            <p>Cuantía:</p>
+            <input type="number" id="cantidad" placeholder="0.00">
 
-        <p>Caja: </p>
-        <select id="concepto">
-            <option value="a"> Caja A </option>
-            <option value="b"> caja B </option>
-        </select>
-        
-        <button type="submit">Añadir</button>
-    </form>
+            <p>Caja:</p>
+            <select id="caja">
+                <option value="a">Caja A</option>
+                <option value="b">Caja B</option>
+            </select>
 
+            <button id="btnAgregar" type="submit">Añadir Registro</button>
+        </form>
+    </div>
+
+    <h2>Filtro Registro</h2>
+    <div id="FiltroRegistro">
+        <form>
+            <p>Seleccione un concepto:</p>
+            <select id="concepto">
+                <option value="ingreso">Ingreso</option>
+                <option value="gasto">Gasto</option>
+            </select>
+
+            <p>Caja:</p>
+            <select id="caja">
+                <option value="a">Caja A</option>
+                <option value="b">Caja B</option>
+            </select>
+
+            <div class="actions">
+                <button id="filtrar" type="button">Filtrar</button>
+                <button id="restaurar" type="reset">Restaurar</button>
+            </div>
+        </form>
+    </div>
+
+    <table id ="regisroTabla">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Fecha</th>
+                <th>Concepto</th>
+                <th>Cuantía</th>
+            </tr>
+        </thead>
+        <tbody>
+            
+        </tbody>
+    </table>
 </body>
 </html>
+ 
